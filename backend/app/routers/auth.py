@@ -65,7 +65,7 @@ def register(body: RegisterIn, db: Session = Depends(get_db)):
     audit(db, user, "cadastro_empresa", "company", company.id)
     db.commit()
     db.refresh(user)
-    return {"token": create_token(user), "user": user_out(user)}
+    return {"token": create_token(user, db), "user": user_out(user)}
 
 
 @router.post("/login")
@@ -75,7 +75,7 @@ def login(body: LoginIn, db: Session = Depends(get_db)):
         raise HTTPException(401, "E-mail ou senha incorretos.")
     audit(db, user, "login", "user", user.id)
     db.commit()
-    return {"token": create_token(user), "user": user_out(user)}
+    return {"token": create_token(user, db), "user": user_out(user)}
 
 
 @router.get("/me")

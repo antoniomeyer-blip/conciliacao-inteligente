@@ -77,7 +77,7 @@ Os dados de demonstração são regenerados com `python scripts/gerar_demo.py`.
 
 1. Importe o repositório no Vercel (framework detectado: Next.js; `api/index.py` vira função Python).
 2. Em **Storage**, adicione um banco **Neon (Postgres)** ao projeto. Isso cria `DATABASE_URL`.
-3. Em **Settings → Environment Variables**, defina `JWT_SECRET` (valor aleatório longo) e, se quiser bloquear novos cadastros, `ALLOW_REGISTRATION=false`.
+3. Opcional: em **Settings → Environment Variables**, defina `JWT_SECRET` (senão a aplicação gera um aleatório e guarda no banco) e `ALLOW_REGISTRATION=false` para bloquear novos cadastros.
 4. Faça o deploy. As tabelas são criadas no primeiro acesso (`AUTO_CREATE_TABLES=true`). Para controle por migrations, rode `alembic upgrade head` com a `DATABASE_URL` de produção e defina `AUTO_CREATE_TABLES=false`.
 
 Limites do Vercel: corpo da requisição de até 4,5 MB por arquivo e 60 s por processamento (configurado em `vercel.json`).

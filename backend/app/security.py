@@ -7,11 +7,35 @@ from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from sqlalchemy.orm import Session
 
-from .config import JWT_HOURS, JWT_SECRET
+import secrets
+
+from sqlalchemy.exc import IntegrityError
+
+from .config import JWT_HOURS, JWT_SECRET_ENV
 from .db import get_db
-from .models import AuditLog, User
+from .models import AppSecret, AuditLog, User
 
 bearer = HTTPBearer(auto_error=False)
+_secret_cache: str | None = None
+
+
+def jwt_secret(db: Session) -> str:
+    """Usa JWT_SECRET do ambiente; sem ele, gera uma chave aleatória única e a persiste no banco."""
+    global _secret_cache
+    if JWT_SECRET_ENV:
+        return JWT_SECRET_ENV
+    if _secret_cache:
+        return _secret_cache
+    row = db.get(AppSecret, "jwt")
+    if not row:
+        try:
+            db.add(AppSecret(name="jwt", value=secrets.token_hex(32)))
+            db.commit()
+        except IntegrityError:
+            db.rollback()
+        row = db.get(AppSecret, "jwt")
+    _secret_cache = row.value
+    return _secret_cache
 
 
 def hash_password(pw: str) -> str:
@@ -25,17 +49,17 @@ def verify_password(pw: str, hashed: str) -> bool:
         return False
 
 
-def create_token(user: User) -> str:
+def create_token(user: User, db: Session) -> str:
     payload = {"sub": str(user.id), "cid": user.company_id, "role": user.role,
                "exp": datetime.now(timezone.utc) + timedelta(hours=JWT_HOURS)}
-    return jwt.encode(payload, JWT_SECRET, algorithm="HS256")
+    return jwt.encode(payload, jwt_secret(db), algorithm="HS256")
 
 
 def current_user(cred: HTTPAuthorizationCredentials | None = Depends(bearer), db: Session = Depends(get_db)) -> User:
     if not cred:
         raise HTTPException(status.HTTP_401_UNAUTHORIZED, "Sessão expirada. Faça login novamente.")
     try:
-        payload = jwt.decode(cred.credentials, JWT_SECRET, algorithms=["HS256"])
+        payload = jwt.decode(cred.credentials, jwt_secret(db), algorithms=["HS256"])
     except jwt.PyJWTError:
         raise HTTPException(status.HTTP_401_UNAUTHORIZED, "Sessão inválida ou expirada. Faça login novamente.")
     user = db.get(User, int(payload["sub"]))

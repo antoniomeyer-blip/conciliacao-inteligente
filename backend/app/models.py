@@ -143,3 +143,11 @@ class AuditLog(Base):
     entity_id: Mapped[str] = mapped_column(String(40), default="")
     details: Mapped[dict] = mapped_column(JSON, default=dict)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=now, index=True)
+
+
+class AppSecret(Base):
+    """Segredos gerados automaticamente pela aplicação (ex.: chave de assinatura de sessão)."""
+    __tablename__ = "app_secrets"
+    name: Mapped[str] = mapped_column(String(50), primary_key=True)
+    value: Mapped[str] = mapped_column(String(200))
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=now)

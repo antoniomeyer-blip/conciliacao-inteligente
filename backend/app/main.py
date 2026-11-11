@@ -7,7 +7,7 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
 from . import models  # noqa: F401  (registra as tabelas)
-from .config import AUTO_CREATE_TABLES, IS_SQLITE, JWT_DEFAULT
+from .config import AUTO_CREATE_TABLES, IS_SQLITE, JWT_SECRET_ENV
 from .db import Base, engine
 from .parsers import ParseError
 from .routers import auth, files, reconciliations, settings
@@ -59,7 +59,7 @@ async def unexpected(_req, exc: Exception):
 @app.get("/api/health")
 def health():
     return {"status": "ok", "database": "sqlite (temporário)" if IS_SQLITE else "postgresql",
-            "jwt_secret_padrao": JWT_DEFAULT}
+            "jwt_secret": "variavel de ambiente" if JWT_SECRET_ENV else "gerado automaticamente no banco"}
 
 
 for r in (auth.router, auth.users_router, files.router, reconciliations.router, settings.router):
