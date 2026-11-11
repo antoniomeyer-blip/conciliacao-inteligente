@@ -1,0 +1,42 @@
+Data;Hora;NSU;Autorização;Bandeira;Tipo;Parcelas;Valor;Status
+01/09/2026;15:16:00;7000389;663059;Mastercard;Crédito parcelado;3;436,50;Aprovada
+02/09/2026;11:34:00;7000458;157649;Mastercard;Crédito à vista;1;89,90;Aprovada
+02/09/2026;09:14:00;7000493;968811;Mastercard;Crédito à vista;1;60,00;Aprovada
+03/09/2026;10:12:00;7000526;640901;Elo;Crédito à vista;1;89,90;Aprovada
+04/09/2026;11:34:00;7000552;263336;Elo;Crédito parcelado;3;930,00;Aprovada
+07/09/2026;11:01:00;7000605;747751;Mastercard;Crédito parcelado;3;269,70;Aprovada
+08/09/2026;16:32:00;7000645;452116;Elo;Crédito à vista;1;49,90;Aprovada
+08/09/2026;16:40:00;7000668;515163;Mastercard;Crédito à vista;1;120,00;Aprovada
+09/09/2026;19:20:00;7000694;308098;Visa;Crédito à vista;1;35,00;Aprovada
+10/09/2026;10:58:00;7000704;657970;Mastercard;Crédito parcelado;3;690,00;Aprovada
+10/09/2026;10:22:00;7000728;378607;Visa;Crédito parcelado;3;180,00;Aprovada
+11/09/2026;17:09:00;7000741;221422;Mastercard;Crédito à vista;1;450,00;Aprovada
+11/09/2026;15:57:00;7000780;326604;Visa;Crédito à vista;1;120,00;Aprovada
+11/09/2026;18:06:00;7000793;990301;Mastercard;Crédito parcelado;3;690,00;Aprovada
+12/09/2026;12:27:00;7000804;102688;Visa;Crédito à vista;1;689,70;Aprovada
+14/09/2026;18:15:00;7000945;923601;Mastercard;Crédito parcelado;3;2.069,10;Aprovada
+15/09/2026;19:14:00;7000985;356256;Visa;Crédito parcelado;3;930,00;Aprovada
+16/09/2026;12:40:00;7001017;856512;Visa;Crédito à vista;1;230,00;Aprovada
+17/09/2026;09:20:00;7001027;992386;Elo;Crédito à vista;1;180,00;Aprovada
+18/09/2026;12:06:00;7001038;616734;Mastercard;Crédito à vista;1;689,70;Aprovada
+18/09/2026;15:37:00;7001047;712187;Mastercard;Crédito parcelado;3;269,70;Aprovada
+30/09/2026;19:14:00;7001414;117465;Visa;Débito;1;180,00;Aprovada
+30/09/2026;12:09:00;7001425;968750;Elo;Débito;1;120,00;Aprovada
+01/10/2026;12:45:00;7001455;534616;Visa;Crédito à vista;1;35,00;Aprovada
+01/10/2026;17:12:00;7001481;735800;Mastercard;Crédito à vista;1;145,50;Aprovada
+02/10/2026;15:49:00;7001517;519579;Elo;Débito;1;60,00;Aprovada
+02/10/2026;09:49:00;7001555;791720;Visa;Crédito parcelado;3;180,00;Aprovada
+02/10/2026;14:44:00;7001578;720759;Visa;Débito;1;145,50;Aprovada
+03/10/2026;19:43:00;7001581;198463;Visa;Débito;1;120,00;Aprovada
+03/10/2026;08:52:00;7001600;186295;Elo;Débito;1;450,00;Aprovada
+05/10/2026;19:49:00;7001637;980939;Visa;Crédito parcelado;3;2.069,10;Aprovada
+06/10/2026;18:32:00;7001643;823107;Visa;Crédito à vista;1;89,90;Aprovada
+06/10/2026;15:57:00;7001662;948223;Elo;Débito;1;450,00;Aprovada
+06/10/2026;19:32:00;7001674;893738;Mastercard;Crédito parcelado;3;149,70;Aprovada
+07/10/2026;09:52:00;7001697;747932;Visa;Crédito parcelado;3;269,70;Aprovada
+07/10/2026;14:26:00;7001714;432116;Mastercard;Crédito à vista;1;60,00;Cancelada
+08/10/2026;11:18:00;7001752;237287;Visa;Crédito parcelado;3;269,70;Aprovada
+09/10/2026;11:31:00;7001790;840207;Elo;Débito;1;120,00;Aprovada
+09/10/2026;12:39:00;7001810;587630;Elo;Crédito à vista;1;120,00;Aprovada
+09/10/2026;15:13:00;7001847;751788;Mastercard;Débito;1;230,00;Aprovada
+31/08/2026;11:28:00;7999991;220439;Mastercard;Crédito parcelado;3;436,50;Negada

@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { -webkit-font-smoothing: antialiased; }
+body { @apply bg-paper text-ink-900; }
+.tabular-nums { font-variant-numeric: tabular-nums; }

@@ -1,0 +1,16 @@
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+.env*
+!.env.example
+__pycache__/
+*.pyc
+.pytest_cache/
+backend/conciliacao.db
+.vercel
+# Arquivos reais de clientes nunca devem ser versionados
+samples/
+*.ofx
+!public/demo/*.ofx
